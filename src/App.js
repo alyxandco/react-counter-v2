@@ -14,9 +14,9 @@ function App() {
       <Header />
       <Addcounter addcount={addcount} setAddcount={setAddcount} />
       <div className="App">
-        {addcount.map((element, index) => {
+        {addcount.map((counter, index) => {
           return (
-            <div>
+            <div key={index}>
               <Counter
                 counter={addcount}
                 setCounter={setAddcount}

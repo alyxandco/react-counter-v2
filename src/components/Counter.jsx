@@ -1,4 +1,22 @@
 const Counter = ({ counter, setCounter, index }) => {
+  const handleClickMinus = () => {
+    const newCounter = [...counter];
+    newCounter[index]--;
+    setCounter(newCounter);
+  };
+
+  const handleClickPlus = () => {
+    const newCounter = [...counter];
+    newCounter[index]++;
+    setCounter(newCounter);
+  };
+
+  const handleReset = () => {
+    const newCounter = [...counter];
+    newCounter[index] = 0;
+    setCounter(newCounter);
+  };
+
   return (
     <>
       <div>
@@ -6,17 +24,7 @@ const Counter = ({ counter, setCounter, index }) => {
           <div>
             {counter[index] > 0 && (
               <div>
-                <button
-                  onClick={() => {
-                    const newCounter = [...counter];
-                    newCounter[index] = newCounter[index] - 1;
-                    setCounter(newCounter);
-                  }}
-                  counter={counter}
-                  setCounter={setCounter}
-                >
-                  -
-                </button>
+                <button onClick={handleClickMinus}>-</button>
               </div>
             )}
           </div>
@@ -25,17 +33,7 @@ const Counter = ({ counter, setCounter, index }) => {
             <div>
               {counter[index] < 10 && (
                 <div>
-                  <button
-                    onClick={() => {
-                      const newCounter = [...counter];
-                      newCounter[index] = newCounter[index] + 1;
-                      setCounter(newCounter);
-                    }}
-                    counter={counter}
-                    setCounter={setCounter}
-                  >
-                    +
-                  </button>
+                  <button onClick={handleClickPlus}>+</button>
                 </div>
               )}
             </div>
@@ -43,17 +41,7 @@ const Counter = ({ counter, setCounter, index }) => {
         </section>
         <section className="reset">
           <div>
-            <button
-              onClick={() => {
-                const newCounter = [...counter];
-                newCounter[index] = 0;
-                setCounter(newCounter);
-              }}
-              counter={counter}
-              setCounter={setCounter}
-            >
-              Reset
-            </button>
+            <button onClick={handleReset}>Reset</button>
           </div>
         </section>
       </div>

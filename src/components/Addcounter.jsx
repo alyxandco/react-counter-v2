@@ -1,20 +1,17 @@
 const Addcounter = ({ addcount, setAddcount }) => {
   const addcountLength = addcount.length;
+
+  const handleNewAddcount = () => {
+    const newAddcount = [...addcount];
+    newAddcount.push(0);
+    setAddcount(newAddcount);
+  };
+
   return (
     <section className="addcounter">
       {addcountLength <= 2 && (
         <div>
-          <button
-            onClick={() => {
-              const newAddcount = [...addcount];
-              newAddcount.push(0);
-              setAddcount(newAddcount);
-            }}
-            addcount={addcount}
-            setAddcount={setAddcount}
-          >
-            Add counter
-          </button>
+          <button onClick={handleNewAddcount}>Add counter</button>
         </div>
       )}
     </section>
